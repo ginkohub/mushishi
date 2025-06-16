@@ -8,8 +8,8 @@
  * This code is part of Ginko project (https://github.com/ginkohub)
  */
 
-import { Detector } from "./detector";
-import { mentions } from "./mentions";
+import { Detector } from "./detector.js";
+import { mentions } from "./mentions.js";
 
 
 export default new Detector(

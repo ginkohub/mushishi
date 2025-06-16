@@ -8,7 +8,8 @@
  * This code is part of Ginko project (https://github.com/ginkohub)
  */
 
-import { Result } from "./result";
+import { Result } from "./result.js";
+
 const rest = new Result({
   type: "too-many-mention",
   message: `Too many mentions`,
