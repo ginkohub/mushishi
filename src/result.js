@@ -9,10 +9,9 @@
  */
 
 export class Result {
-  constructor({ type, codeName, info, data }) {
+  constructor({ type, message, data }) {
     this.type = type;
-    this.codeName = codeName;
-    this.info = info;
+    this.message = message;
     this.data = data;
   }
 }
