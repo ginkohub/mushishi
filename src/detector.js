@@ -19,6 +19,7 @@ export class Detector {
   /**
   * Detects the given event
   * @param {any} update
+  * @returns {import('./result.js').Result}
   */
   detect(update) {
     for (let i = 0; i < this.methods.length; i++) {
@@ -26,7 +27,7 @@ export class Detector {
       if (!method || typeof method !== 'function') continue;
       const result = method(update);
       if (result) {
-        return true;
+        return result;
       }
     }
   }
