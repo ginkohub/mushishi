@@ -9,17 +9,34 @@
  */
 
 import { Result } from "./result";
-const codeName = "too-many-mention";
+const rest = new Result({
+  type: "too-many-mention",
+  message: `Too many mentions`,
+});
 
 export function mentions(update) {
   if (update) {
     if (update.mentions) {
       if (Array.isArray(update.mentions) && update.mentions?.length > 1025) {
-        return new Result({
-          type: codeName,
-          message: `Too many mentions (${update.mentions.length} > 1025)`,
-          data: update.mentions
-        })
+        rest.data = update.mentions;
+        return rest
+      }
+    }
+
+    if (Array.isArray(update)) {
+      for (const up of update) {
+        for (const key of up) {
+          if (typeof up[key] === 'object') {
+            if (up[key].contextInfo) {
+              if (up[key].contextInfo?.mentionedJid) {
+                if (Array.isArray(up[key].contextInfo.mentionedJid) && up[key].contextInfo.mentionedJid.length > 1025) {
+                  rest.data = up[key].contextInfo.mentionedJid;
+                  return rest;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
