@@ -11,6 +11,9 @@
 import { Detector } from "./detector.js";
 import { mentions } from "./mentions.js";
 
+export * from "./detector.js";
+export * from "./mentions.js";
+export * from "./mentions.js";
 
 export default new Detector(
   mentions
