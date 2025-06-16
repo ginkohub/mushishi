@@ -8,4 +8,11 @@
  * This code is part of Ginko project (https://github.com/ginkohub)
  */
 
+import { Detector } from "./detector";
+import { mentions } from "./mentions";
+
+
+export default new Detector(
+  mentions
+);
 
